@@ -16,7 +16,7 @@ const Book = (props) => {
     console.log("current book:", current_book)
 
     return (
-        <div className="book-container">
+        <div className="book">
             <img src={current_book.image_link}></img>
             <h2>{current_book.title}</h2>
             <h4>{current_book.author}</h4>

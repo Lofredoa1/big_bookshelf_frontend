@@ -1,70 +1,155 @@
-# Getting Started with Create React App
+# Big Bookshelf 
+## Description
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a full-stack application that allows users to connect with each other in order to exchange books locally. Users will be able to create personal accounts and customize their profiles where they can list their own books to exchange with the community. This application uses Google Books API to retrieve information about the book listed for exchange. Once a book is listed users will be able to add, view, update, and delete books. Users are able to message each other in order to coordinate details about a book exchange.
+Front-end: React
+Back-end: Python on Fast API
 
-## Available Scripts
+### Project Links
 
-In the project directory, you can run:
+- [Back end git](https://github.com/Lofredoa1/big_bookshelf_backend)
+- [Front end git](https://github.com/Lofredoa1/big_bookshelf_frontend)
+- [Back end deployment](https://big-bookshelf.herokuapp.com/)
+- [Front end deployment](https://big-bookshelf-frontend.vercel.app/)
 
-### `npm start`
+### Wireframes and React Architecture
+- Wireframes:
+    - [UX Design](https://imgur.com/a/CnVTyCY)
+- React Architecture: 
+    - [Google Drawing](https://docs.google.com/drawings/d/1BPeJZ68IAwSCQBR7CjzZ9KgAdo0SmN5jHPW94gKa_W0/edit?usp=sharing)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Time/Priority Matrix
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+| Component                             | Priority | Est. Time | Actual Time |
+| ------------------------------------- |:-:| :-------: | :---------: |
+| Onboarding/Sign-up/Login page         | H | 2 hrs  |   |
+| User/Auth functionality               | H | 4 hrs  |   |
+| Home page                             | H | 2 hrs  |   |
+| Setup backend API                     | H | 2 hrs  |   |
+| Setup controller for users books      | H | 4 hrs  |   |
+| Setup Google Book API                 | H | 4 hrs  |   |
+| Search Filter for Google API          | H | 2 hrs  |   |
+| Backend data formatting               | H | 4 hrs  |   |
+| Search filter for Books               | H | 2 hrs  |   |
+| Profile page                          | H | 3 hrs  |   |
+| Book page                             | H | 2 hrs  |   |
+| Blog component                        | L | 2 hrs  |   |
+| Blog backend routes                   | L | 2 hrs  |   |
+| Navbar component                      | M | 2 hrs  |   |
+| About Us page                         | L | 1 hrs  |   |
+| Form profile component                | M | 1 hrs  |   |
+| Form book component                   | M | 1 hrs  |   |
+| Bug fixing & QA                       | H | 4 hrs  |   |
+| Deployment & testing                  | H | 2 hrs  |   |
+| Styling of components                 | M | 4 hrs  |   |
+| Setting up carousel features          | L | 3 hrs  |   |
+| Total                                 |   | 54 hrs |   |
 
-### `npm test`
+## MVP/Post-MVP
+### MVP
+- Login/User Auth
+- Full functioning backend that manages and transforms all data for the front end
+- User Profile pages that lists current books available for exchange
+- Display all books available in your area
+- Descriptive views for each available book
+- Blog to communicate about books or engage in conversation
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Post-MVP
+- Chat room
+- Geofilter
+- Ability to message users directly 
 
-### `npm run build`
+## Component/Page - Descriptions
+- Onboarding Page
+    - prompts user to login or sign-up
+- Sign-up Page
+    - collects info from new user to create unique account
+- Login Page
+    - grants user access to the site based on user/password
+- Home Page
+    - shows available books in your area
+    - allows user to filter areas
+- MyProfile Page
+    - shows user info and available books
+- Book Page
+    - shows unique information about a selected book
+- Form Pages
+    - allows user to edit/create profile
+    - allows user to edit/create new books
+- About Us page
+    - shows mission statement
+- Blog Page
+    - shows blog posts and allows users to create new post 
+- Nav component
+    - toggles page view
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Additional Libraries
+- [Google Books API](https://developers.google.com/books/docs/v1/using#query-params) 
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
+# Routes
+## Books 
+(Filtered Search of Google API?)
+#### SEED?
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Sign-Up
+```
+/signup/
+```
 
-### `npm run eject`
+### Login
+```
+/login/
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### INDEX
+```
+/books/
+```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### SHOW
+```
+/books/<:id>/
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### CREATE
+```
+/books/
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### UPDATE
+```
+/books/<:id>/
+```
 
-## Learn More
+### DESTROY
+```
+/books/<:id>/
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Blog 
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### INDEX
+```
+/posts/
+```
 
-### Code Splitting
+### SHOW
+```
+/posts/<:id>/
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### CREATE
+```
+/posts/
+```
 
-### Analyzing the Bundle Size
+### UPDATE
+```
+/posts/<:id>/
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### DESTROY
+```
+/posts/<:id>/
+```
