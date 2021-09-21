@@ -30,14 +30,9 @@ const Login = (props) => {
         }).then((response) => response.json())
     }
 
-    const thisbutton = () => {
-        fetch( url + "/posts/getuserposts")
-    }
-
     const handleSubmit = (event) => {
         event.preventDefault()
         login(formData)
-        // props.getMyPosts()
         history.push("/home")
     }
 
@@ -59,7 +54,6 @@ const Login = (props) => {
                     <input type='password' name='password' id='password' onChange={handleChange} />
                     <br />
                     <input className="login-button" type='submit' value='Login' style={{alignSelf: "center"}} />
-                    <button onClick={thisbutton}>Click This</button>
                 </form>
             </div>
         </div>

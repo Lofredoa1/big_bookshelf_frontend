@@ -22,7 +22,7 @@ const SignUp = (props) => {
 
     //sign up user
     const signUp = (credentials) => {
-        fetch(url + "/signup", {
+        fetch(url + "/user/signup", {
         method: "post",
         headers: {
             "Content-Type": "application/json",

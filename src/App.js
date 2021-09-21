@@ -7,6 +7,8 @@ import SignUp from "./pages/SignUp";
 import Login from "./pages/Login";
 import Home from "./pages/Home";
 import Navbar from "./components/Navbar";
+import Book from "./pages/Book";
+import Form from "./components/Form";
 
 function App() {
 
@@ -24,10 +26,9 @@ function App() {
     favorite: true
   }
 
-  // state to track selected book
   const [selectedBook, setSelectedBook] = useState(emptyBook)
 
-  // updates the selectedBook state to track active book
+  //updates the selectedBook state to track active book
   const selectBook = (book) => {
     setSelectedBook(book)
   };
@@ -56,7 +57,7 @@ function App() {
 
   // Updates existing book
   const handleUpdate = (book) => {
-    fetch(url + "/book/" + book._id, {
+    fetch(url + "/book/" + book.id, {
       method: "put",
       headers: {
         "Content-Type": "application/json"
@@ -69,7 +70,7 @@ function App() {
 
   // Deletes a book
   const deleteBook = (book) => {
-    fetch(url + "/book/" + book._id, {
+    fetch(url + "/book/" + book.id, {
       method: "delete"
     }).then(() => {
       getBooks();
@@ -94,11 +95,18 @@ function App() {
           <div>
             <Navbar/>
             <Home {...rp} books={books[0]}/>
-          </div>
-     
-        }>
-         
+          </div>}>
         </Route>
+        <Route path="/book/:bookId" render={(rp) => 
+          <div>
+            <Navbar/>
+            <Book {...rp} books={books[0]} selectBook={selectBook} deleteBook={deleteBook}/>
+          </div>}>
+        </Route>
+        <Route path="/create" render={(rp) => 
+          <Form {...rp} label="create" myBook={emptyBook} books={books} handleSubmit={handleCreate}/>}/>
+        <Route path="/edit" render={(rp) => (
+          <Form {...rp} label="edit" myBook={selectedBook} books={books} handleSubmit={handleUpdate}/>)}/>
       </Switch>
     </div>
   );

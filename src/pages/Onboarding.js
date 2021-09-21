@@ -5,7 +5,7 @@ import logo from "../bookshelf-logo.png"
 
 const Onboarding = (props) => {
     return <>
-        <img src={logo} alt="logo"></img>
+        <img src={logo} alt="logo" style={{"marginTop": "40px"}}></img>
         <h1 className="app-title">Big Bookshelf</h1>
         <h3 className="welcome">Connecting readers one book at a time</h3>
         <div className="onboarding-buttons">
