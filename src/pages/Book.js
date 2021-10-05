@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, {useState} from "react";
 import "../App.css";
 
 const Book = (props) => {
@@ -13,7 +13,6 @@ const Book = (props) => {
         const output = books.filter(book => book.id == current_id)
         const current_book = output[0]
 
-    console.log("current book:", current_book)
 
     return (
         <div className="book">
