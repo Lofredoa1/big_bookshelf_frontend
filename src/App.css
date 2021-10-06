@@ -1,6 +1,19 @@
 .App {
   text-align: center;
 }
+/* Login Styling */
+.login-header {
+  margin-top: 10px;
+}
+
+.login-button {
+  color: orange;
+  background-color: #060708;
+  margin-top: 10px;
+  font-size: 1.3em;
+  border-radius: .25em;
+  padding: 5px 10px;
+}
 
 /* Navbar styling */
 .navbar {

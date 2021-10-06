@@ -13,7 +13,7 @@ const Onboarding = (props) => {
                 <button className="onboarding-button">Sign up</button>
             </Link>
             <Link to="/login">
-                <button className="onboarding-button">Login in</button>
+                <button className="onboarding-button">Login</button>
             </Link>
         </div>
     </>
