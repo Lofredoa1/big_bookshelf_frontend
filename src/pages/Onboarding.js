@@ -9,11 +9,11 @@ const Onboarding = (props) => {
         <h1 className="app-title">Big Bookshelf</h1>
         <h3 className="welcome">Connecting readers one book at a time</h3>
         <div className="onboarding-buttons">
-            <Link to="/signup">
-                <button className="onboarding-button">Sign up</button>
-            </Link>
             <Link to="/login">
                 <button className="onboarding-button">Login</button>
+            </Link>
+            <Link to="/signup">
+                <button className="onboarding-button">Sign up</button>
             </Link>
         </div>
     </>

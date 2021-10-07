@@ -33,29 +33,28 @@ const Login = (props) => {
     const handleSubmit = (event) => {
         event.preventDefault()
         login(formData)
+ 
         history.push("/home")
     }
 
   
     return (
         <div className="login-screen">
-            <div className="login-block">
-                <div className="login-header">
-                    <Link to="/">
-                        <i class="fas fa-arrow-circle-left fa-2x" style={{color: "gray"}} ></i>
-                    </Link>
-                    <h1 className="app-title">Welcome Back!</h1>
-                </div>
-                <form onSubmit={handleSubmit}>
-                    <label className="login-label" for='username'>username:</label>
-                    <input type='text' name='username' id='username' onChange={handleChange} />
-                    <br />
-                    <label className="login-label" for='password'>password:</label>
-                    <input type='password' name='password' id='password' onChange={handleChange} />
-                    <br />
-                    <input className="login-button" type='submit' value='Login' style={{alignSelf: "center"}} />
-                </form>
+            <div className="login-header">
+                <Link to="/">
+                    <i class="fas fa-arrow-circle-left fa-2x" style={{color: "gray"}} ></i>
+                </Link>
+                <h1 className="app-title">Welcome Back!</h1>
             </div>
+            <form className="login-form" onSubmit={handleSubmit}>
+                <label className="login-label" for='username'>Username:</label>
+                <input type='text' name='username' id='username' onChange={handleChange} />
+                <br />
+                <label className="login-label" for='password'>Password:</label>
+                <input type='password' name='password' id='password' onChange={handleChange} />
+                <br />
+                <input className="login-button" type='submit' value='Login' style={{alignSelf: "center"}} />
+            </form>
         </div>
     )
 }

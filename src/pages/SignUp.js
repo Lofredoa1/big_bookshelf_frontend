@@ -13,7 +13,8 @@ const SignUp = (props) => {
         first_name: "",
         last_name: "",
         username: "",
-        password: ""
+        password: "",
+        verifyPassword: ""
     })
 
     const handleChange = (event) => {
@@ -22,6 +23,7 @@ const SignUp = (props) => {
 
     //sign up user
     const signUp = (credentials) => {
+        console.log(credentials)
         fetch(url + "/user/signup", {
         method: "post",
         headers: {
@@ -33,8 +35,12 @@ const SignUp = (props) => {
 
     const handleSubmit = (event) => {
         event.preventDefault()
-        signUp(formData)
-        history.push("/login")
+        if (formData.password !== formData.verifyPassword) {
+            alert("Passwords do not match")
+        } else {
+            signUp(formData)
+            history.push("/login")
+        }
     }
 
     return (
@@ -46,18 +52,21 @@ const SignUp = (props) => {
                     </Link>
                     <h1 className="app-title">Create Account</h1>
                 </div>
-                <form onSubmit={handleSubmit}>
+                <form className="signup-form" onSubmit={handleSubmit}>
                     <label className="login-label" for='first_name'>First Name:</label>
                     <input type='text' name='first_name' id='first_name' onChange={handleChange} />
                     <br />
                     <label className="login-label" for='last_name'>Last Name:</label>
                     <input type='text' name='last_name' id='last_name' onChange={handleChange} />
                     <br />
-                    <label className="login-label" for='username'>username:</label>
+                    <label className="login-label" for='username'>Username:</label>
                     <input type='text' name='username' id='username' onChange={handleChange} />
                     <br />
-                    <label className="login-label" for='password'>password:</label>
+                    <label className="login-label" for='password'>Password:</label>
                     <input type='password' name='password' id='password' onChange={handleChange} />
+                    <br />
+                    <label className="login-label" for='verifyPassword'>Verify Password:</label>
+                    <input type='password' name='verifyPassword' id='verifyPassword' onChange={handleChange} />
                     <br />
                     <input className="signup-button" type='submit' value='Register' style={{alignSelf: "center"}}/>
                 </form>

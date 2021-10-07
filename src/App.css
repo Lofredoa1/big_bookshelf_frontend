@@ -1,18 +1,76 @@
+:root {
+  --gray:#DCDCDC;
+  --black: #242424;
+  --orange: #FF8C00;
+}
+/* UNIVERSAL STYLING */
+* { box-sizing: border-box;}
+
 .App {
   text-align: center;
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: var(--black);
+    padding: 0.35em;
+    height: 90vh;
+    margin-bottom: 3.5em;
 }
+
+/* Onboarding Styling */
+.onboarding-buttons {
+  display: flex;
+  flex-direction: column;
+}
+
+button.onboarding-button {
+  margin-bottom: 15px;
+  width: 125px;
+  border-radius: 12px;
+  padding: 10px;
+  background-color: var(--gray);
+  color: var(--black);
+  font-size: 16px;
+}
+
 /* Login Styling */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 10px;
+}
+
+input#username, input#password {
+ align-self: center;
+ padding: 5px 0;
+}
+
+.login-label {
+  margin-bottom: 10px;
+  font-size: 18px;
+}
 .login-header {
   margin-top: 10px;
 }
 
-.login-button {
-  color: orange;
-  background-color: #060708;
-  margin-top: 10px;
-  font-size: 1.3em;
-  border-radius: .25em;
-  padding: 5px 10px;
+.login-button, .signup-button {
+  color: var(--black);
+  background-color: var(--gray);
+  width: 125px;
+  font-size: 16px;
+  border-radius: 12px;
+  padding: 10px;
+}
+
+/* Sign Up Styling */
+.signup-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+input#first_name, input#last_name, input#verifyPassword {
+  align-self: center;
+  padding: 5px 0;
 }
 
 /* Navbar styling */
