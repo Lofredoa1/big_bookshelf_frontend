@@ -4,6 +4,16 @@ import "../App.css";
 import logo from "../BB.png"
 
 const Navbar = (props) => {
+    
+    // const url = "https://big-bookshelf.herokuapp.com"
+
+    const url = "http://localhost:8000"
+
+    const logout = () => {
+        fetch(url + "/user/logout")
+        .then((response) => response.json())
+    }
+
 
     return (
         <div className="navbar">
@@ -22,7 +32,7 @@ const Navbar = (props) => {
                     <p className="nav-headers">About</p>
                 </Link>
                 <Link to="/logout">
-                    <p className="nav-headers">Logout</p>
+                    <p className="nav-headers" onClick={logout}>Logout</p>
                 </Link>  
             </div>
         </div>

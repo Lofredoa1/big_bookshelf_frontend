@@ -8,7 +8,9 @@ const Login = (props) => {
 
     const history = useHistory();
 
-    const url = "https://big-bookshelf.herokuapp.com"
+    // const url = "https://big-bookshelf.herokuapp.com"
+
+    const url = "http://localhost:8000"
 
     const [formData, setFormData] = useState({
         username: "",
@@ -28,16 +30,20 @@ const Login = (props) => {
             },
             body: JSON.stringify(credentials)
         }).then((response) => response.json())
+        .then(responseJson => {
+            if (Object.keys(responseJson)[0] === "response"){
+                history.push("/home")
+            } else {
+                alert("Wrong username or password combination")
+            }
+        })
     }
 
     const handleSubmit = (event) => {
         event.preventDefault()
         login(formData)
- 
-        history.push("/home")
     }
 
-  
     return (
         <div className="login-screen">
             <div className="login-header">

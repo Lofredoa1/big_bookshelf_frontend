@@ -10,7 +10,7 @@ const Book = (props) => {
 
     const loaded = () => {
         const current_id = props.match.params['bookId']
-        const output = books.filter(book => book.id == current_id)
+        const output = books.filter(book => book.id === current_id)
         const current_book = output[0]
 
 

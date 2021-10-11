@@ -7,7 +7,9 @@ const SignUp = (props) => {
 
     const history = useHistory();
 
-    const url = "https://big-bookshelf.herokuapp.com"
+    // const url = "https://big-bookshelf.herokuapp.com"
+
+    const url = "http://localhost:8000"
 
     const [formData, setFormData] = useState({
         first_name: "",
@@ -23,7 +25,7 @@ const SignUp = (props) => {
 
     //sign up user
     const signUp = (credentials) => {
-        console.log(credentials)
+        // console.log(credentials)
         fetch(url + "/user/signup", {
         method: "post",
         headers: {
@@ -31,6 +33,13 @@ const SignUp = (props) => {
         },
         body: JSON.stringify(credentials)
         }).then((response) => response.json())
+        .then(responseJson => {
+            if (Object.keys(responseJson)[0] === "access_token"){
+                history.push("/login")
+            } else {
+                alert("username already exists")
+            }
+        })
     }
 
     const handleSubmit = (event) => {
@@ -39,7 +48,6 @@ const SignUp = (props) => {
             alert("Passwords do not match")
         } else {
             signUp(formData)
-            history.push("/login")
         }
     }
 

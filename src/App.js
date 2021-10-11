@@ -9,6 +9,7 @@ import Home from "./pages/Home";
 import Navbar from "./components/Navbar";
 import Book from "./pages/Book";
 import Form from "./components/Form";
+import Logout from "./pages/Logout";
 
 function App() {
 
@@ -90,6 +91,9 @@ function App() {
         </Route>
         <Route path="/login">
           <Login/>
+        </Route>
+        <Route path="/logout">
+          <Logout/>
         </Route>
         <Route path="/home" render={(rp) => 
           <div>
