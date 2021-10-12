@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Logout = (props) => {
+const Logout = () => {
     return (
         <>
             <h1>User successfully logged out</h1>

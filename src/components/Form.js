@@ -18,7 +18,6 @@ const Form = (props) => {
  
     const handleSubmit = (event) => {
         event.preventDefault()
-        console.log("ONSUBMIT: ", formData)
         props.handleSubmit(formData)
         props.history.push("/home")
     };
