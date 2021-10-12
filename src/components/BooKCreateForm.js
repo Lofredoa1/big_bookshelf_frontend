@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import "../App.css"
 
-const Form = (props) => {
+const BookCreateForm = (props) => {
 
     const defaultBook = {
             id: props.myBook.id,
@@ -20,6 +20,7 @@ const Form = (props) => {
         event.preventDefault()
         props.handleSubmit(formData)
         props.history.push("/home")
+    
     };
 
     const handleChange = (event) =>  {
@@ -94,4 +95,4 @@ const Form = (props) => {
     ) 
 };
 
-export default Form
+export default BookCreateForm

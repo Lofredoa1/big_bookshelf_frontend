@@ -8,7 +8,8 @@ import Login from "./pages/Login";
 import Home from "./pages/Home";
 import Navbar from "./components/Navbar";
 import Book from "./pages/Book";
-import Form from "./components/Form";
+import BookCreateForm from "./components/BooKCreateForm";
+import BookEditForm from "./components/BookEditForm";
 import Logout from "./pages/Logout";
 
 function App() {
@@ -108,9 +109,9 @@ function App() {
           </div>}>
         </Route>
         <Route path="/create" render={(rp) => 
-          <Form {...rp} label="create" myBook={emptyBook} books={books} handleSubmit={handleCreate}/>}/>
+          <BookCreateForm {...rp} label="create" myBook={emptyBook} books={books} handleSubmit={handleCreate}/>}/>
         <Route path="/edit" render={(rp) => (
-          <Form {...rp} label="edit" myBook={selectedBook} books={books} handleSubmit={handleUpdate}/>)}/>
+          <BookEditForm {...rp} label="edit" myBook={selectedBook} books={books} handleSubmit={handleUpdate}/>)}/>
       </Switch>
     </div>
   );

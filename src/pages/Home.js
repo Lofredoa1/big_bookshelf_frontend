@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import {Link} from "react-router-dom"
 import "../App.css"
 
@@ -10,18 +10,21 @@ const Home = (props) => {
 
     const handleChange = (event) => {
         setFormData(event.target.value)
-        // let result = activeBooks.filter(t => t.title.toLowerCase() == formData.toLowerCase())
-        // console.log(activeBooks)
-        // console.log(result)
+        if (formData.length <= 3){
+            setActiveBooks(props.books)
+        } else {
+            let result = props.books.filter(book => book.title.toLowerCase().includes(formData.toLowerCase()))
+            setActiveBooks(result)
+        }
     }
 
     const handleSubmit = (event) => {
         event.preventDefault()
-        let result = activeBooks.filter(t => t.title.toLowerCase() == formData.toLowerCase())
-        console.log(activeBooks)
-        console.log(result)
-        return result
+        let result = props.books.filter(book => book.title.toLowerCase().includes(formData.toLowerCase()))
+        setActiveBooks(result)
     };
+
+    useEffect(() => {setActiveBooks(props.books)}, [props.books])
 
     return (
         <>
@@ -32,12 +35,12 @@ const Home = (props) => {
         <form onSubmit={handleSubmit}>
             <h4 className="search-header">Filter the Bookshelf</h4>
             <input className="search-bar" name="search" value={formData} onChange={handleChange} />
-            <input type="submit" value="search"/>
+            <input type="submit" value="Filter"/>
         </form>
         
         </div>
         <div className="home-container">
-            {props.books.map((b) => {
+            {activeBooks.map((b) => {
                 const {title, image_link, id} = b
                 return (
                     <Link to={`/book/${id}`} key={id}>

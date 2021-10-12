@@ -21,6 +21,12 @@
   flex-direction: column;
 }
 
+.onboarding-buttons > a{
+  align-self: center;
+  width:125px;
+  height: 45px;
+}
+
 button.onboarding-button {
   margin-bottom: 15px;
   width: 125px;
