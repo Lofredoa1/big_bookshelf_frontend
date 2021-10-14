@@ -3,19 +3,36 @@ import "../App.css"
 
 const BookCreateForm = (props) => {
 
-    const defaultBook = {
-            id: props.myBook.id,
-            title: props.myBook.title,
-            author: props.myBook.author,
-            genre: props.myBook.genre,
-            description: props.myBook.description,
-            image_link: props.myBook.image_link,
-            favorite: props.myBook.favorite
-          }
-        
+    // const url = "https://big-bookshelf.herokuapp.com"
+    const url = "http://localhost:8000"
 
-    const [formData, setFormData] = useState(defaultBook)
- 
+    const defaultBook = {
+        id: props.myBook.id,
+        title: props.myBook.title,
+        author: props.myBook.author,
+        genre: props.myBook.genre,
+        description: props.myBook.description,
+        image_link: props.myBook.image_link,
+        favorite: props.myBook.favorite
+    }
+    
+    
+    const [formData, setFormData] = useState(defaultBook);
+    const [searchData, setSearchData] = useState("");
+    const [searchResults, setSearchResults] =useState([]);
+    
+    const searchBooks = () => {
+        fetch(url + "/book/search/{" + searchData + "}")
+        console.log("yes")
+        .then((response) => response.json())
+        .then((data)=> setSearchResults(data.data))
+    }
+    // Book Search - handleChange
+    const handleChangeSearch = (event) => {
+        setSearchData(event.target.value)
+    }
+
+    // Book Form submit 
     const handleSubmit = (event) => {
         event.preventDefault()
         props.handleSubmit(formData)
@@ -23,11 +40,18 @@ const BookCreateForm = (props) => {
     
     };
 
+    // Book Form - handleChange
     const handleChange = (event) =>  {
         setFormData({...formData, [event.target.name]: event.target.value})
     };
 
     return (
+        <>
+         <form onSubmit={searchBooks}>
+            <h4 className="search-header">Search for Your Book Here:</h4>
+            <input className="search-bar" name="search" value={searchData} onChange={handleChangeSearch}/>
+            <input type="submit" value="Search"/>
+        </form>
         <form onSubmit={handleSubmit}>
             <div className="form-header">
                 <a onClick={() => props.history.goBack()}><i class="fas fa-arrow-circle-left fa-lg" ></i></a>
@@ -92,6 +116,7 @@ const BookCreateForm = (props) => {
                 />
             </div>
         </form>
+        </>
     ) 
 };
 

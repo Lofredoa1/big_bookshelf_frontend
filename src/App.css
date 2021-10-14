@@ -146,7 +146,19 @@ p.book-title {
 }
 
 .book > img {
-  width: 300px;
+  width: 250px;
   height: 300px;
   align-self: center;
+  margin-top: 15px;
+}
+
+.icons > button,i {
+  margin: 0 15px;
+}
+
+button.delete-button, button.edit-button {
+  font-size: 18px;
+  padding: 5px;
+  align-items: center;
+  border-radius: 10px;
 }

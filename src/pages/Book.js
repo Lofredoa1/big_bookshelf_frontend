@@ -16,21 +16,21 @@ const Book = (props) => {
 
     return (
         <div className="book">
-            <img src={current_book.image_link}></img>
+            <img src={current_book.image_link} alt="Book thumbnail"></img>
             <h2>{current_book.title}</h2>
             <h4>{current_book.author}</h4>
             <h4>{current_book.genre}</h4>
             <p className="book-desc">{current_book.description}</p>
             <div className="icons">
-                <i class="fas fa-heart fa-2x"></i>
                 <button className="edit-button" onClick={() => {
-                            props.selectBook(current_book)
-                            props.history.push("/edit")
-                            }}>Edit</button>
+                    props.selectBook(current_book)
+                    props.history.push("/edit")
+                }}>Edit</button>
                 <button className="delete-button" onClick={() => {
-                            props.deleteBook(current_book)
-                            props.history.push("/home")
-                            }}>Delete</button>
+                    props.deleteBook(current_book)
+                    props.history.push("/home")
+                }}>Delete</button>
+                <i class="fas fa-heart fa-2x"></i>
             </div>
         </div>
     )}
