@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import "../App.css";
 
 const Book = (props) => {
-    const [selected, setSelected] = useState([])
+    // const [selected, setSelected] = useState([])
 
     const {books} = props
     

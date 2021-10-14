@@ -5,9 +5,9 @@ import logo from "../BB.png"
 
 const Navbar = (props) => {
     
-    // const url = "https://big-bookshelf.herokuapp.com"
+    const url = "https://big-bookshelf.herokuapp.com"
 
-    const url = "http://localhost:8000"
+    // const url = "http://localhost:8000"
 
     const logout = () => {
         fetch(url + "/user/logout")
